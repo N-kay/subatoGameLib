@@ -44,7 +44,7 @@ public class GWTGraphics implements GraphicsTool<ImageElement>{
 
 
   public void setColor(double r ,double g ,double b){
-    // TODO 
+    gc.setFillStyle(CssColor.make("rgba("+r*255+","+g*255+","+b*255+",1)")); 
   }
   
   @Override
