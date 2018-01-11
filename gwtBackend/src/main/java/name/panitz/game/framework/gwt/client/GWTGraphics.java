@@ -9,6 +9,7 @@ import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.event.dom.client.LoadEvent;
 import com.google.gwt.event.dom.client.LoadHandler;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.canvas.dom.client.CssColor;
 
 public class GWTGraphics implements GraphicsTool<ImageElement>{
   Context2d gc;
