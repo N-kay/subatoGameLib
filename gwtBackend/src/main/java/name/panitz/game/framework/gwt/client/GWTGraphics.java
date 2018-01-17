@@ -43,7 +43,15 @@ public class GWTGraphics implements GraphicsTool<ImageElement>{
     // TODO 
   }
 
+  @Override
+  public void drawLine(double x1, double y1, double x2, double y2) {
+    gc.beginPath();
+    gc.lineTo(x1,y1);
+    gc.lineTo(x2,y2);
+    gc.stroke();
+  }
 
+  
   public void setColor(double r ,double g ,double b){
     gc.setFillStyle(CssColor.make("rgba("+r*255+","+g*255+","+b*255+",1)")); 
   }

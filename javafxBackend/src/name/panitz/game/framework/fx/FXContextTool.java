@@ -41,6 +41,12 @@ public class FXContextTool implements GraphicsTool<Image>{
   }
 
   @Override
+  public void drawLine(double x1, double y1, double x2, double y2) {
+    gc.strokeLine(x1, y1, x2, y2);
+  }
+
+  
+  @Override
   public void drawString(double x,double y,int fontSize, String fontName, String text){
     gc.setFont(new Font(fontName, fontSize));
     gc.fillText(text,x,y);

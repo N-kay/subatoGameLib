@@ -48,6 +48,14 @@ public class AndroidGraphicsTool implements GraphicsTool<Bitmap> {
   }
 
   @Override
+  public void drawLine(double x1, double y1, double x2, double y2) {
+    paint.setStyle(Paint.Style.STROKE);
+    canvas.drawLine((float)(density*x1),(float)(density*y1)
+      ,(float)(x2*density),(float)(y2*density),paint);
+  }
+
+  
+  @Override
   public void fillRect(double x, double y, double w, double h) {
     paint.setStyle(Paint.Style.FILL);
     canvas.drawRect((float)(density*x),(float)(density*y)
