@@ -42,10 +42,16 @@ public class SwingGraphicsTool implements GraphicsTool<Image>{
   }
 
   @Override
+  public void drawLine(double x1, double y1, double x2, double y2) {
+    g.drawLine((int)x1,(int)y1, (int)x2, (int)y2); 
+  }
+
+  @Override
   public void drawString(double x,double y,int fontSize, String fontName, String text){
     g.setFont(new Font(fontName, Font.PLAIN, fontSize));
     g.drawString(text, (int)x, (int)y);
   }
+
   @Override
   public  Image generateImage(String name, GameObject<Image> go){
     ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource(name));

@@ -72,7 +72,7 @@ public class GameScreen extends VerticalPanel{
     HorizontalPanel buttonsPanel = new HorizontalPanel();
     for (Button b:game.getButtons()){
       com.google.gwt.user.client.ui.Button bb
-	=new com.google.gwt.user.client.ui.Button(b.name,(ClickEvent ev)->{Window.alert("How high?");b.action.run();}); 
+	=new com.google.gwt.user.client.ui.Button(b.name,(ClickEvent ev)->{b.action.run();}); 
       buttonsPanel.add(bb);
       bb.setEnabled(true);
     }
@@ -93,8 +93,36 @@ public class GameScreen extends VerticalPanel{
 
     //    canvas.setFocus(true);
     canvas.addKeyPressHandler((ev)->{
-      game.keyPressedReaction(KeyCode.fromCode(ev.getNativeEvent().getKeyCode()));
-    });
+      game.keyPressedReaction(KeyCode.fromCode(ev.getCharCode()));
+      });
+
+    canvas.addKeyDownHandler((ev)->{
+	if (ev.isDownArrow()){
+	  game.keyPressedReaction(KeyCode.DOWN_ARROW);
+	}else if (ev.isUpArrow()){
+	  game.keyPressedReaction(KeyCode.UP_ARROW);
+	}else if (ev.isLeftArrow()){
+	  game.keyPressedReaction(KeyCode.LEFT_ARROW);
+	}else if (ev.isRightArrow()){
+	  game.keyPressedReaction(KeyCode.RIGHT_ARROW);
+	}else{
+	  game.keyPressedReaction(KeyCode.fromCode(ev.getNativeEvent().getCharCode()));
+	}
+      });
+    
+    canvas.addKeyUpHandler((ev)->{
+	if (ev.isDownArrow()){
+	  game.keyReleasedReaction(KeyCode.DOWN_ARROW);
+	}else if (ev.isUpArrow()){
+	  game.keyReleasedReaction(KeyCode.UP_ARROW);
+	}else if (ev.isLeftArrow()){
+	  game.keyReleasedReaction(KeyCode.LEFT_ARROW);
+	}else if (ev.isRightArrow()){
+	  game.keyReleasedReaction(KeyCode.RIGHT_ARROW);
+	}else{
+	  game.keyReleasedReaction(KeyCode.fromCode(ev.getNativeEvent().getCharCode()));
+	}
+      });
     timer.scheduleRepeating(refreshRate);
     timer.run();
 

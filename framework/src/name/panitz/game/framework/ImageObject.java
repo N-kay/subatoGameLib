@@ -3,7 +3,8 @@ package name.panitz.game.framework;
 public class ImageObject<I> extends AbstractGameObject<I>{
   String imageFileName;
   I img;
-	
+  private boolean changed = true;
+
   public ImageObject(String imageFileName) {
     super(0,0);
     this.imageFileName = imageFileName;
@@ -22,10 +23,19 @@ public class ImageObject<I> extends AbstractGameObject<I>{
     super(width);
     this.imageFileName = imageFileName;
   }
-	
+
+  public String getImageFileName() {
+    return imageFileName;
+  }
+
+  public void setImageFileName(String imageFileName) {
+    this.imageFileName = imageFileName;
+    changed  = true;
+  }
+
   @Override
   public void paintTo(GraphicsTool<I> g) {
-    if (null==img) img = g.generateImage(imageFileName,this);
+    if (changed) img = g.generateImage(imageFileName,this);
     if (null!=img) g.drawImage(img, getPos().x, getPos().y);
   }
 }

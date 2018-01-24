@@ -41,6 +41,11 @@ public class SwingScreen extends JPanel{
       public void keyPressed(KeyEvent e) {
         logic.keyPressedReaction(KeyCode.fromCode(e.getKeyCode()));
       }
+      @Override
+      public void keyReleased(KeyEvent e) {
+        logic.keyReleasedReaction(KeyCode.fromCode(e.getKeyCode()));
+      }
+
     });
     setFocusable(true);
     requestFocus();
