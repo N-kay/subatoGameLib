@@ -224,6 +224,7 @@ public class PlaySwing{
 <paragraph>
 <title>Java FX Instanz des Spieles</title>
 Um das Spiel in JavaFx zu starten, ist eine Unterklasse der Klasse <tt>GameApplication</tt> zu schreiben. Im Aufruf des Superkonstruktors ist eine Spielinstanz zu übergeben.
+Die Main Methode ermöglicht das Starten des Spiels als exportierte .jar Datei.
 
 <code  lang="java" class="PlayFX" package="src/main/java/name/panitz/game/example/simple"><![CDATA[package name.panitz.game.example.simple;
 
@@ -232,6 +233,9 @@ import name.panitz.game.framework.fx.GameApplication;
 public class PlayFX extends GameApplication {
   public PlayFX(){
     super(new SimpleGame<>());
+  }
+  public static void main(String[] args) {
+    PlayFX.launch();
   }
 }]]></code>
 </paragraph>
