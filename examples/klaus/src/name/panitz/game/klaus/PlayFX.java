@@ -7,6 +7,7 @@ public class PlayFX extends GameApplication {
   public PlayFX(){
     super(new HeartsOfKlaus<>());
   }
-
+  public static void main(String[] args) {
+    PlayFX.launch();
+  }
 }
-
